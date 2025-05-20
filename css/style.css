@@ -22,14 +22,14 @@
 .kanban-column:not(:last-child){
     margin-right: 20px;
 }
-.kanban-column-title{
+.kanban__column-title{
     font-size: 24px;
     font-weight: bold;
     color: #970b0b;
     margin-bottom: 10px;
     user-select:none;
 }
-.kanban-item-input{
+.kanban__item-input{
     padding: 10px;
     box-sizing: border-box;
     background: white;
@@ -37,19 +37,19 @@
     cursor: pointer;
     transition: background 0.3s;
 }
-.kanban-dropzone{
+.kanban__dropzone{
     height: 10px;
     transition: background 0.15s, height 0.15s;
     background: transparent;
 }
-.kanban-dropzone:hover{
+.kanban__dropzone:hover{
     background: rgba(0, 0, 0, 0.1);
 }
-.kanban-dropzone-active{
+.kanban__dropzone--active{
     height: 25px;
     background: rgba(0, 0, 0, 0.2);
 }
-.kanban-add-items{
+.kanban__add-item{
     width: 100%;
     padding: 10px;
     background: rgba(0, 0, 0, 0.1);
