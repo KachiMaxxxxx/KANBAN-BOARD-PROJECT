@@ -1,4 +1,4 @@
-export default class KanbanAPI {
+ export default class KanbanAPI {
 
 static read(){
    const json = localStorage.getItem('kanban-data');
@@ -16,7 +16,7 @@ static read(){
             {
                 id: 3,
                 items: []
-            },
+            }
         ] 
     };
 
@@ -52,9 +52,9 @@ static insertItem(columnId, content) {
     this.save(data);
 
      return item;
-    }
+}
 
- static updateItem(itemId, newProps) {
+static updateItem(itemId, newProps) {
         const data = this.read();
 
         let item = null;
@@ -75,7 +75,7 @@ static insertItem(columnId, content) {
         
         // Update content if provided
         item.content = newProps.content === undefined ? item.content : newProps.content;
-        /*
+        
 
         // Move item to a new column and position
         if (newProps.columnId !== undefined && newProps.position !== undefined) {
@@ -86,14 +86,27 @@ static insertItem(columnId, content) {
             }
 
             // Remove from old column
-            currentColumn.items = currentColumn.items.filter(i => i.id !== itemId);
+            currentColumn.items = currentColumn.items.filter(item => item.id !== itemId);
 
             // Insert into target column at the specified position
             targetColumn.items.splice(newProps.position, 0, item);
         }
- */
+ 
         this.save(data);
+}
+
+static deleteItem(itemId){
+    const data = this.read();
+     for (const column of data){
+        const item = column.items.find(item => item.id === itemId);
+        if (item) {
+            column.items = column.items.filter(item => item.id !== itemId);
+        }
     }
+    this.save(data);
+}
+
+
 }
 
 
